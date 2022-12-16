@@ -12,8 +12,12 @@ To reproduce builds:
   - Within a "Developer Command Prompt for Visual Studio 2019":
     - Change to the idea2art-aio install directory
     - Run `env\micromamba.exe run -r env -n sd-grpc-server cmd`
-  - Git checkout whatever version of xformers you want to build
+  - `git clone https://github.com/facebookresearch/xformers.git`
+  - Use git to checkout whatever version of xformers you want to build
+  - `git submodule update --init --recursive`
   - `pip install -r requirements.txt`
   - `set TORCH_CUDA_ARCH_LIST=6.0;7.0;7.5;8.0;8.6`
+  - `set DISTUTILS_USE_SDK=1`
+  - (Optional) `set MAX_JOBS={some number}`
   - `python setup.py build`
   - `python setup.py bdist_wheel`
